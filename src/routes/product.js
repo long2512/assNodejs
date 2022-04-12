@@ -9,8 +9,8 @@ router.get("/search ", SearchPro);
 router.get("/", list);
 
 router.get("/:id", get);
-router.post("/:userId", requireSignin, isAuth, isAdmin, create);
-// router.post("/products", create);
+// router.post("/:userId", requireSignin, isAuth, isAdmin, create);
+router.post("/", create);
 
 
 
