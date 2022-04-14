@@ -27,11 +27,11 @@ const userSchema = new Schema({
 
 userSchema.methods = {
     authenticate(password){
-        console.log('password in method', password);
-        console.log('this.password == this.encrytPassword(password)', this.password == this.encrytPassword(password))
         return this.password == this.encrytPassword(password);
+        //so sánh mk truyền vào với mk trong db
     },
     encrytPassword(password){ 
+        //mã hoá 
         console.log('password in method', password)
         if(!password) return;
         try {

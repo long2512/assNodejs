@@ -37,15 +37,15 @@ export const SearchPro = async (req, res) => {
 }
 
 export const PaginationProduct = async (req, res) => {
-    const perPage = 6; // số lượng sản phẩm xuất hiện trên 1 page
+    const perPage = 4; // số lượng sản phẩm xuất hiện trên 1 page
     const page = req.params.page || 1;
     console.log(page);
 
     const Product = productSchema;
-    // console.log(Product);
+
     try {
         await Product
-            .find() // find tất cả các data
+            .find() 
             .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
             .limit(perPage)
             .exec((err, products) => {
@@ -89,6 +89,7 @@ export const get = async (req, res) => { // get a product
 export const remove = async (req, res) => { // delete product
     try {
         const products = await Product.findOneAndDelete({_id: req.params.id }).exec();
+        
         res.json(products);    
     } catch (error) {
         res.status(400).json({

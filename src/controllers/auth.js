@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 export const signup = async (req, res) => {
     const { email, name, password} = req.body;
     try {
-        // kiem tra user co ton tai khong?
+        
         const existUser = await User.findOne({email}).exec();
         if(existUser){
             return res.status(400).json({

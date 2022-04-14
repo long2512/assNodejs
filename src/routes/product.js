@@ -5,7 +5,7 @@ import { userById } from '../controllers/user';
 import { checkAuth, isAdmin, isAuth, requireSignin } from '../middleware/checkAuth';
 
 const router = Router();
-router.get("/search ", SearchPro);
+// router.get("/search ", SearchPro);
 router.get("/", list);
 
 router.get("/:id", get);
